@@ -66,4 +66,21 @@ class QueryTest extends TestCase
     {
         $result = $this->adapter->query('SET @@session.time_zone = :tz$', [':tz$' => 'SYSTEM']);
     }
+
+    public function testNamedParameters()
+    {
+        $sql = new \Laminas\Db\Sql\Sql($this->adapter);
+        $insert = $sql->update('mytable');
+        $insert->set([
+            'name'  => ':name',
+            'value' => ':value'
+        ])->where(['id' => ':id']);
+
+        $stmt = $sql->prepareStatementForSqlObject($insert);
+        $stmt->execute([
+            'id'    => 1,
+            'name'  => 'foo',
+            'value' => 'bar'
+        ]);
+    }
 }
