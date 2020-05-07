@@ -71,7 +71,7 @@ class QueryTest extends TestCase
     {
         $sql = new \Laminas\Db\Sql\Sql($this->adapter);
 
-        $insert = $sql->update('mytable');
+        $insert = $sql->update('test');
         $insert->set([
             'name'  => ':name',
             'value' => ':value'
