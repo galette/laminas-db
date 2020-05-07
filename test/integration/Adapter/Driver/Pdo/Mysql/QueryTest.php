@@ -70,13 +70,29 @@ class QueryTest extends TestCase
     public function testNamedParameters()
     {
         $sql = new \Laminas\Db\Sql\Sql($this->adapter);
+
         $insert = $sql->update('mytable');
         $insert->set([
             'name'  => ':name',
             'value' => ':value'
         ])->where(['id' => ':id']);
-
         $stmt = $sql->prepareStatementForSqlObject($insert);
+
+        //positional parameters => work
+        $stmt->execute([
+            1,
+            'foo',
+            'bar'
+        ]);
+
+        //"mapped" named parameters => work
+        $stmt->execute([
+            'c_0'    => 1,
+            'c_1'    => 'foo',
+            'where1' => 'bar'
+        ]);
+
+        //real named parameters => do not work
         $stmt->execute([
             'id'    => 1,
             'name'  => 'foo',
