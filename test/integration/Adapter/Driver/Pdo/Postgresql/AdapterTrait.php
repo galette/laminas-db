@@ -6,7 +6,7 @@
  * @license   https://github.com/laminas/laminas-db/blob/master/LICENSE.md New BSD License
  */
 
-namespace LaminasIntegrationTest\Db\Adapter\Driver\Pdo\Posgtresql;
+namespace LaminasIntegrationTest\Db\Adapter\Driver\Pdo\Postgresql;
 
 use Laminas\Db\Adapter\Adapter;
 
@@ -19,7 +19,7 @@ trait AdapterTrait
         }
 
         $this->adapter = new Adapter([
-            'driver'   => 'pdo_mysql',
+            'driver'   => 'pdo_pgsql',
             'database' => getenv('TESTS_LAMINAS_DB_ADAPTER_DRIVER_PGSQL_DATABASE'),
             'hostname' => getenv('TESTS_LAMINAS_DB_ADAPTER_DRIVER_PGSQL_HOSTNAME'),
             'username' => getenv('TESTS_LAMINAS_DB_ADAPTER_DRIVER_PGSQL_USERNAME'),
