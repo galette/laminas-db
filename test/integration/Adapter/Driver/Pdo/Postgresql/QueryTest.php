@@ -6,7 +6,7 @@
  * @license   https://github.com/laminas/laminas-db/blob/master/LICENSE.md New BSD License
  */
 
-namespace LaminasIntegrationTest\Db\Adapter\Driver\Pdo\Posgtresql;
+namespace LaminasIntegrationTest\Db\Adapter\Driver\Pdo\Postgresql;
 
 use Laminas\Db\Adapter\Driver\Pdo\Result as PdoResult;
 use Laminas\Db\ResultSet\ResultSet;
