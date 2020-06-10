@@ -90,6 +90,7 @@ class QueryTest extends TestCase
         ]);
         var_dump($stmt);
 
+        $stmt = $sql->prepareStatementForSqlObject($insert);
         //"mapped" named parameters
         $stmt->execute([
             'c_0'    => 1,
@@ -98,6 +99,7 @@ class QueryTest extends TestCase
         ]);
         var_dump($stmt);
 
+        $stmt = $sql->prepareStatementForSqlObject($insert);
         //real named parameters
         $stmt->execute([
             'id'    => 1,
