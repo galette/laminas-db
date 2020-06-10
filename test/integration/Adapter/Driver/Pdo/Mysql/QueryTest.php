@@ -80,6 +80,7 @@ class QueryTest extends TestCase
             'value' => ':value'
         ])->where(['id' => ':id']);
         $stmt = $sql->prepareStatementForSqlObject($insert);
+        var_dump($stmt);
 
         //positional parameters
         $stmt->execute([
@@ -87,6 +88,7 @@ class QueryTest extends TestCase
             'foo',
             'bar'
         ]);
+        var_dump($stmt);
 
         //"mapped" named parameters
         $stmt->execute([
@@ -94,6 +96,7 @@ class QueryTest extends TestCase
             'c_1'    => 'foo',
             'where1' => 'bar'
         ]);
+        var_dump($stmt);
 
         //real named parameters
         $stmt->execute([
@@ -101,5 +104,6 @@ class QueryTest extends TestCase
             'name'  => 'foo',
             'value' => 'bar'
         ]);
+        var_dump($stmt);
     }
 }
