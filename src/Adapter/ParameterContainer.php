@@ -88,8 +88,8 @@ class ParameterContainer implements Iterator, ArrayAccess, Countable
             return $this->data[$name];
         }
 
-        if (isset($this->nameMapping[$name]) && isset($this->data[$this->nameMapping[$name]])) {
-            return $this->data[$this->nameMapping[$name]];
+        if (isset($this->nameMapping[ltrim($name, ':')]) && isset($this->data[$this->nameMapping[ltrim($name, ':')]])) {
+            return $this->data[$this->nameMapping[ltrim($name, ':')]];
         }
 
         return null;
