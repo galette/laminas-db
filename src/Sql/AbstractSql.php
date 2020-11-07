@@ -184,7 +184,12 @@ abstract class AbstractSql implements SqlInterface
                     // if prepareType is set, it means that this particular value must be
                     // passed back to the statement in a way it can be used as a placeholder value
                     if ($parameterContainer) {
-                        $name = $namedParameterPrefix . $expressionParamIndex++;
+                        $matches = [];
+                        if (preg_match('/:([0-9a-zA-Z_]+)/', $value, $matches)) {
+                            $name = $matches[1];
+                        } else {
+                            $name = $namedParameterPrefix . $expressionParamIndex++;
+                        };
                         $parameterContainer->offsetSet($name, $value);
                         $values[$vIndex] = $driver->formatParameterName($name);
                         continue;

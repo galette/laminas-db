@@ -203,8 +203,14 @@ class Update extends AbstractPreparableSql
             if (is_scalar($value) && $parameterContainer) {
                 // use incremental value instead of column name for PDO
                 // @see https://github.com/zendframework/zend-db/issues/35
+                // Galette: only rename when needed.
                 if ($driver instanceof Pdo) {
-                    $column = 'c_' . $i++;
+                    $matches = [];
+                    if (preg_match('/:([0-9a-zA-Z_]+)/', $value, $matches)) {
+                        $column = $matches[1];
+                    } else {
+                        $column = 'c_' . ++$i;
+                    };
                 }
                 $setSql[] = $prefix . $driver->formatParameterName($column);
                 $parameterContainer->offsetSet($column, $value);
