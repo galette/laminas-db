@@ -21,7 +21,7 @@ class PostgresqlTest extends TestCase
 {
     public $adapters = [];
 
-    protected function setUp(): void
+    protected function setUp()
     {
         if (! getenv('TESTS_LAMINAS_DB_ADAPTER_DRIVER_PGSQL')) {
             $this->markTestSkipped(__CLASS__ . ' integration tests are not enabled!');

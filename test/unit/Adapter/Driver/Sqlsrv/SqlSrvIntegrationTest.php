@@ -26,7 +26,7 @@ class SqlSrvIntegrationTest extends AbstractIntegrationTest
      */
     private $resource;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         parent::setUp();
         $this->resource = $this->adapters['sqlsrv'];

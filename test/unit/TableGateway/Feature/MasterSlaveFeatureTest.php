@@ -26,7 +26,7 @@ class MasterSlaveFeatureTest extends TestCase
     /** @var \Laminas\Db\TableGateway\TableGateway */
     protected $table;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->mockMasterAdapter = $this->getMockBuilder('Laminas\Db\Adapter\AdapterInterface')->getMock();
 

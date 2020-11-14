@@ -12,7 +12,7 @@ use Laminas\Db\Adapter\Adapter;
 
 trait AdapterTrait
 {
-    protected function setUp(): void
+    protected function setUp()
     {
         if (! getenv('TESTS_LAMINAS_DB_ADAPTER_DRIVER_PGSQL')) {
             $this->markTestSkipped('pdo_pgsql integration tests are not enabled!');

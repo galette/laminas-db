@@ -40,7 +40,7 @@ class AdapterTest extends TestCase
      */
     protected $adapter;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->mockDriver = $this->getMockBuilder('Laminas\Db\Adapter\Driver\DriverInterface')->getMock();
         $this->mockConnection = $this->getMockBuilder('Laminas\Db\Adapter\Driver\ConnectionInterface')->getMock();

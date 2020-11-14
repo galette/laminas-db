@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 
 class FloatTest extends TestCase
 {
-    protected function setUp(): void
+    protected function setUp()
     {
         if (version_compare(PHP_VERSION, '7.0', '>=')) {
             $this->markTestSkipped('Cannot test Float column under PHP 7; reserved keyword');

@@ -23,7 +23,7 @@ class ConnectionIntegrationTest extends AbstractIntegrationTest
     public function testGetCurrentSchema()
     {
         $connection = new Connection($this->variables);
-        self::assertIsString($connection->getCurrentSchema());
+        self::assertInternalType('string', $connection->getCurrentSchema());
     }
 
     /**
@@ -53,7 +53,7 @@ class ConnectionIntegrationTest extends AbstractIntegrationTest
     {
         $connection = new Connection($this->variables);
         $connection->connect();
-        self::assertIsResource($connection->getResource());
+        self::assertInternalType('resource', $connection->getResource());
 
         $connection->disconnect();
         unset($connection);

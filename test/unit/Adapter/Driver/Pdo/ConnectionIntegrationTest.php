@@ -26,7 +26,7 @@ class ConnectionIntegrationTest extends TestCase
     public function testGetCurrentSchema()
     {
         $connection = new Connection($this->variables);
-        self::assertIsString($connection->getCurrentSchema());
+        self::assertInternalType('string', $connection->getCurrentSchema());
     }
 
     /**

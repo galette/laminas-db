@@ -18,7 +18,7 @@ class NotBetweenTest extends TestCase
      */
     protected $notBetween;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->notBetween = new NotBetween();
     }

@@ -22,7 +22,7 @@ class TableGatewayTest extends TestCase
 {
     protected $mockAdapter;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         // mock the adapter, driver, and parts
         $mockResult = $this->getMockBuilder('Laminas\Db\Adapter\Driver\ResultInterface')->getMock();
@@ -192,7 +192,7 @@ class TableGatewayTest extends TestCase
         ]);
 
         $state = $insert->getRawState();
-        self::assertIsArray($state['table']);
+        self::assertInternalType('array', $state['table']);
         self::assertEquals(
             $tableValue,
             $state['table']
@@ -254,7 +254,7 @@ class TableGatewayTest extends TestCase
         ]);
 
         $state = $update->getRawState();
-        self::assertIsArray($state['table']);
+        self::assertInternalType('array', $state['table']);
         self::assertEquals(
             $tableValue,
             $state['table']
@@ -314,7 +314,7 @@ class TableGatewayTest extends TestCase
         ]);
 
         $state = $delete->getRawState();
-        self::assertIsArray($state['table']);
+        self::assertInternalType('array', $state['table']);
         self::assertEquals(
             $tableValue,
             $state['table']

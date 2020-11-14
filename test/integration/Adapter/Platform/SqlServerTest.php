@@ -19,7 +19,7 @@ class SqlServerTest extends TestCase
 {
     public $adapters = [];
 
-    protected function setUp(): void
+    protected function setUp()
     {
         if (! getenv('TESTS_LAMINAS_DB_ADAPTER_DRIVER_SQLSRV')) {
             $this->markTestSkipped(__CLASS__ . ' integration tests are not enabled!');

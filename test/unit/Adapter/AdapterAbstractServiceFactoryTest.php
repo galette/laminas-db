@@ -19,7 +19,7 @@ class AdapterAbstractServiceFactoryTest extends TestCase
      */
     private $serviceManager;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->serviceManager = new ServiceManager();
 

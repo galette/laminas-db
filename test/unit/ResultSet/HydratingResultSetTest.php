@@ -23,7 +23,7 @@ class HydratingResultSetTest extends TestCase
     /** @var string */
     private $classMethodsHydratorClass;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->arraySerializableHydratorClass = class_exists(ArraySerializableHydrator::class)
             ? ArraySerializableHydrator::class
@@ -107,6 +107,6 @@ class HydratingResultSetTest extends TestCase
             ['id' => 1, 'name' => 'one'],
         ]);
         $obj = $hydratingRs->toArray();
-        self::assertIsArray($obj);
+        self::assertInternalType('array', $obj);
     }
 }

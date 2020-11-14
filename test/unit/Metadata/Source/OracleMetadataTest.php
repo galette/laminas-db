@@ -31,7 +31,7 @@ class OracleMetadataTest extends AbstractIntegrationTest
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
-    protected function setUp(): void
+    protected function setUp()
     {
         if (! extension_loaded('oci8')) {
             $this->markTestSkipped('I cannot test without the oci8 extension');

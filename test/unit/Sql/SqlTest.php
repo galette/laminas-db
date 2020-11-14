@@ -23,7 +23,7 @@ class SqlTest extends TestCase
      */
     protected $sql;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         // mock the adapter, driver, and parts
         $mockResult = $this->getMockBuilder('Laminas\Db\Adapter\Driver\ResultInterface')->getMock();
