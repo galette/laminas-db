@@ -26,7 +26,7 @@ class AbstractSqlTest extends TestCase
 
     protected $mockDriver;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->abstractSql = $this->getMockForAbstractClass('Laminas\Db\Sql\AbstractSql');
 

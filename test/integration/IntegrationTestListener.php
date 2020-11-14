@@ -12,11 +12,14 @@ use Exception;
 use LaminasIntegrationTest\Db\Platform\FixtureLoader;
 use PDO;
 use PDOException;
-use PHPUnit\Framework\BaseTestListener;
+use PHPUnit\Framework\TestListenerDefaultImplementation;
+use PHPUnit\Framework\TestListener;
 use PHPUnit_Framework_TestSuite as TestSuite;
 
-class IntegrationTestListener extends BaseTestListener
+class IntegrationTestListener implements TestListener
 {
+    use TestListenerDefaultImplementation;
+
     /**
      * @var PDO
      */
@@ -27,7 +30,7 @@ class IntegrationTestListener extends BaseTestListener
      */
     private $fixtureLoader;
 
-    public function startTestSuite(TestSuite $suite)
+    public function startTestSuite(TestSuite $suite): void
     {
         if ($suite->getName() !== 'integration test') {
             return;
@@ -47,7 +50,7 @@ class IntegrationTestListener extends BaseTestListener
         $this->fixtureLoader->createDatabase();
     }
 
-    public function endTestSuite(TestSuite $suite)
+    public function endTestSuite(TestSuite $suite): void
     {
         if ($suite->getName() !== 'integration test'
             || ! isset($this->fixtureLoader)

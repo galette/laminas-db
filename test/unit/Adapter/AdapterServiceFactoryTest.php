@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 class AdapterServiceFactoryTest extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         if (! extension_loaded('pdo_sqlite')) {
             $this->markTestSkipped('Adapter factory tests require pdo_sqlite');

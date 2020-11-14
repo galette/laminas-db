@@ -24,7 +24,7 @@ class ConnectionTest extends TestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->connection = new Connection();
     }
@@ -43,7 +43,7 @@ class ConnectionTest extends TestCase
         try {
             $resource = $this->connection->getResource();
             // connected with empty string
-            self::assertInternalType('resource', $resource);
+            self::assertIsResource($resource);
         } catch (AdapterException\RuntimeException $exc) {
             // If it throws an exception it has failed to connect
             $this->expectException('Laminas\Db\Adapter\Exception\RuntimeException');

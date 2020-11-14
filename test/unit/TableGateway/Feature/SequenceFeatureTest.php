@@ -25,7 +25,7 @@ class SequenceFeatureTest extends TestCase
     /** @var string  sequence name */
     protected $sequenceName = 'table_sequence';
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->feature = new SequenceFeature($this->primaryKeyField, $this->sequenceName);
     }
