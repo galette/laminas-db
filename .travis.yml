@@ -12,18 +12,49 @@ env:
 matrix:
   fast_finish: true
   include:
-    - php: 7.3
+    - php: 5.6
       env:
         - DEPS=lowest
-    - php: 7.3
+    - php: 5.6
       services:
         - mysql
       env:
         - DEPS=latest
         - TEST_INTEGRATION=true
         - TESTS_LAMINAS_DB_ADAPTER_DRIVER_MYSQL=true
-        - TESTS_LAMINAS_DB_ADAPTER_DRIVER_MYSQL_HOSTNAME=127.0.0.1
-    - php: 7.3
+    - php: 7.0
+      env:
+        - DEPS=lowest
+    - php: 7.0
+      services:
+        - mysql
+      env:
+        - DEPS=latest
+        - TEST_INTEGRATION=true
+        - TESTS_LAMINAS_DB_ADAPTER_DRIVER_MYSQL=true
+    - php: 7.1
+      env:
+        - DEPS=lowest
+    - php: 7.1
+      services:
+        - mysql
+      env:
+        - DEPS=latest
+        - CS_CHECK=true
+        - TEST_COVERAGE=true
+        - TEST_INTEGRATION=true
+        - TESTS_LAMINAS_DB_ADAPTER_DRIVER_MYSQL=true
+    - php: 7.2
+      env:
+        - DEPS=lowest
+    - php: 7.2
+      services:
+        - mysql
+      env:
+        - DEPS=latest
+        - TEST_INTEGRATION=true
+        - TESTS_LAMINAS_DB_ADAPTER_DRIVER_MYSQL=true
+    - php: 7.2
       services:
         - postgresql
       addons:
@@ -32,11 +63,10 @@ matrix:
         - DEPS=latest
         - TEST_INTEGRATION=true
         - TESTS_LAMINAS_DB_ADAPTER_DRIVER_PGSQL=true
-        - TESTS_LAMINAS_DB_ADAPTER_DRIVER_PGSQL_HOSTNAME=127.0.0.1
-    - php: 7.4
+    - php: 7.3
       env:
         - DEPS=lowest
-    - php: 7.4
+    - php: 7.3
       services:
         - mysql
       env:
@@ -44,7 +74,7 @@ matrix:
         - TEST_INTEGRATION=true
         - TESTS_LAMINAS_DB_ADAPTER_DRIVER_MYSQL=true
         - TESTS_LAMINAS_DB_ADAPTER_DRIVER_MYSQL_HOSTNAME=127.0.0.1
-    - php: 7.4
+    - php: 7.3
       services:
         - postgresql
       addons:
